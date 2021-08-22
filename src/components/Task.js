@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Task({ task: { id, title, state }, onArchiveTask, onPinTask }) {
 	return (
@@ -25,3 +26,19 @@ export default function Task({ task: { id, title, state }, onArchiveTask, onPinT
 		</div>
 	);
 }
+
+Task.propTypes = {
+	// Composition of the task
+	task: PropTypes.shape({
+		//Id of the task
+		id: PropTypes.string.isRequired,
+		//Title of the task
+		title: PropTypes.string.isRequired,
+		//Current state of the task
+		state: PropTypes.string.isRequired,
+	}),
+	//Event handler to archive a task
+	onArchiveTask: PropTypes.func,
+	//Event handler to pin a task
+	onPinTask: PropTypes.func,
+};
