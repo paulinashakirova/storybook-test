@@ -75,7 +75,7 @@ export default connect(
     tasks: tasks.filter(t => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED')
   }),
   dispatch => ({
-    onArchiveTask: taskId => dispatch(archiveTask(taskId)),
-    onPinTask: taskId => dispatch(pinTask(taskId)),
+    onArchiveTask: Id => dispatch(archiveTask(Id)),
+    onPinTask: Id => dispatch(pinTask(Id)),
   })
 )(PureTaskList);
